@@ -1,0 +1,33 @@
+server:
+  port: 8089
+  tomcat:
+    uri-encoding: utf-8
+
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.102:3306/yh?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.yh.pojo
+logging:
+  file:
+    path: d:/log.txt
+  level:
+    com.yh: debug
+
+
+pagehelper:
+  #选择连接数据库类型
+  helperDialect: mysql
+  #校验页码大于最大页码则显示最大页，页码小于1则显示1
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
